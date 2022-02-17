@@ -1,0 +1,140 @@
+\RequirePackage{luatex85}
+\documentclass[a4j]{ltjsarticle}
+\usepackage{mymacros}
+\usepackage{graphicx}
+\usepackage[hiragino-pro]{luatexja-preset}
+\usepackage{luatexja-ruby}
+\usepackage{luatexja-otf}
+\DeclareMathAlphabet{\mathrsfs}{U}{rsfso}{m}{n}
+\renewcommand{\mathscr}[1]{\mathup{\mathrsfs{#1}}}
+\usepackage[super]{nth}
+\usepackage[bookmarksnumbered,pdfproducer={LuaLaTeX},%
+            luatex,psdextra,pdfusetitle,pdfencoding=auto]{hyperref}
+\usepackage[backend=biber,style=math-numeric]{biblatex}
+\addbibresource{myreference.bib}
+\renewcommand{\emph}[1]{\textbf{\textgt{#1}}}
+\newcommand{\leport}{$\lambda$eport}
+
+\usepackage{url}	% required for `\url' (yatex added)
+\usepackage{amssymb}	% required for `\mathbb' (yatex added)
+\begin{document}
+\begin{center}
+ {\huge \bfseries \ruby{石}{いし}\ruby{井}{い} \ruby{大海}{ひろみ}}
+ \vskip 1em
+ {\emph{\Large 基本情報}}\\
+ 筑波大学数理物質科学研究科\\
+ 数学専攻 博士後期課程\\
+ \textsc{E-Mail}: \href{mailto:h-ishii@math.tsukuba.ac.jp}{\nolinkurl{h-ishii@math.tsukuba.ac.jp}}\\
+ \textsc{Web Site}: \url{https://konn-san.com}\\
+ \textsc{GitHub}: \url{https://github.com/konn}
+\end{center}
+
+\section*{教育・学位}
+\begin{tabular}[t]{@{}p{.2\linewidth}p{.75\linewidth}@{}}
+ \begin{minipage}[t]{\linewidth}\emph{博士（理学），予定}\end{minipage} 
+ & 2016年4月〜現在．筑波大学数理物質科学研究科数学専攻 博士後期課程\\
+ \begin{minipage}[t]{\linewidth}\emph{修士（理学）}\end{minipage} 
+ & \begin{minipage}[t]{\linewidth}
+    2016年3月．筑波大学数理物質科学研究科 博士前期課程・修了\\
+   \emph{修士論文:} On Regularity Properties of Sets of Reals and Inaccessible Cardinals
+   \end{minipage} 
+ \\
+ \begin{minipage}[t]{\linewidth}\emph{学士（理学）}\end{minipage} 
+ & 2014年3月．早稲田大学基幹理工学部数学科・卒 \\
+\end{tabular}
+
+\section*{職歴・採用歴}
+\begin{description}
+ \item[2017年4月〜2019年3月]
+              日本学術振興会特別研究員 DC2
+
+              研究課題：『実数の集合の性質の集合論的解明と工学的応用』
+ \item[2014年〜2017年] 筑波大学数学類『計算機演習』ティーチング・アシスタント
+ \item[2014年4月] Google Summer of Code 2014採択
+
+            題目：『Haskellによる効率的なGr\"{o}bner基底計算とそのための疎行列対角化アルゴリズムの実装』
+ \item[2014年4月〜2017年3月] 筑波大学数学専攻計算機管理アルバイト（www-admin）
+ \item[2010年10月〜2014年3月] 株式会社Preferred Infrastructureアルバイト
+ \item[2010年8月〜9月] 株式会社Preferred Infrastructureインターン生
+\end{description}
+
+\section*{賞罰・特記事項}
+\begin{itemize}
+ \item 日本学術振興会特別研究員DC2，（2017年〜2019年）
+ \item 第十四回茗渓会賞（2016年）
+ \item 2013年度早稲田大学基幹理工学部長賞最優秀賞（第一回），基幹理工学部卒業生総代
+ \item Web数式描画ライブラリ\href{https://github.com/Khan/KaTeX}{KaTeX}およびHaskell製Webフレームワーク\href{https://www.yesodweb.com}{Yesod}コミッタ
+\end{itemize}
+
+\section*{研究業績}
+\subsection*{査読付き会議論文}
+\noindent
+September 2018, \emph{A Purely Functional Computer Algebra System Embedded in Haskell}. Computer Algebra in Scientific Computing 2018, Lille, France.
+
+\noindent
+September 2015. Oleg Kiselyov and Hiromi ISHII, \emph{Freer Monads, More Extensible effects}. Haskell Symposium 2015, Vancouber, Canada.
+
+\subsection*{学会発表}
+\noindent
+September 2018, \emph{A Purely Functional Computer Algebra System Embedded in Haskell}. Computer Algebra in Scientific Computing 2018, Lille, France, 査読あり.
+
+\noindent
+March 2016, \emph{Freer Monads, More Extensible Effects}. Programming and Programming Language Workshop (PPL) 2016, Okayama-prefecture, Japan, 査読あり.
+
+\noindent
+November 2017, \emph{Reflection Principle and construction of saturated ideals on $\Pow_{\omega_1} \lambda$}. Workshop on Iterated Forcing Theory and Cardinal Invariants, Kyoto-prefecture, Japan, 査読なし.
+
+\begin{refsection}
+ \nocite{ISHII:2016sf,Kiselyov:2015xy}
+ \printbibliography[title=論文,heading=subbibliography]
+\end{refsection}
+
+\section*{開発実績}
+\begin{refsection}
+
+\subsection*{レポート自動採点システム\leport}
+ 生徒の提出したレポート（Haskellプログラム）を自動採点するためのツールである．
+ 演習のティーティング・アシスタントにはそこまでHaskellに習熟していない担当者もおり，また単なる目視による採点では見落としがあり得る．
+ そこで，関数型プログラミングにおける\emph{性質ベーステスト}（\emph{Proeprty-based Testing}）の方法論を応用し，\emph{QuickCheck}ライブラリを用いてレポートの答案の形式仕様を与え，\emph{生徒の答案が仕様を満たすかを自動でチェック}し，結果を報告する．
+
+ 実装に当たっては，生徒の答案というプライバシーに関わる情報を取り扱うため，\emph{Let's Encrypt}で証明書を取得しHTTPS上で通信を行うようにした．
+ また，複数人で同時に採点を行うため，分散コンピューティングライブラリ\emph{Cloud Haskell}を用いて\emph{Work-Stealingモデルを採用した分散システム}を構築した．
+ また，各プロセスの内部でも様々な並行処理が必要であるため，Haskellの強力な\emph{Software Transactional Memory}の機構を活用し，簡潔で安全な実装を実現した．
+ QuickCheckによるテストでは任意のコードが実行される可能性があるため，\emph{Linux Containers}を用いて隔離されたコンテナ上でこれらの検証を行う．
+ Linux ContainersはCPUやメモリの占有率を制御出来，この点でも安全性が担保される．
+ 小問ごとに採点された結果は，Linux Containersの\emph{WebSocket API}を介してワーカにリアルタイムで伝達され，\emph{EventSource}経由でWebフロントエンドに反映される．
+
+\subsection*{計算機代数システム\texttt{computational-algebra}}
+ \noindent
+ \textsc{Web Site}: \url{https://konn.github.io/computational-algebra}
+
+ 関数型言語Haskellの処理系Glasgow Haskell Compiler（以下，GHC）が提供する先進的型システムを活かし，高度な代数計算を安全に行える計算代数システムをEDSLとしてゼロから設計・実装した．
+ 具体的には，型システムや形式手法を応用することで以下の長所を実現した：
+ \begin{description}
+  \item[型安全] 係数体や変数の数，順番などを型で表すことで，誤操作を防止する．
+  \item[拡張性] 多項式や代数系を表す型クラスを提供し，内部実装に依らず様々なアルゴリズムを適用可能にした．
+  \item[直感的] $\Q[x, y, z]$と$\Q[x,z,y, w]$は型上区別されるが，これらの間の埋め込み写像を型情報だけから自動的に計算出来る．
+             また，多項式も本来の数式に近い形で \verb|#x ^ 2 + #z * #x - 2| のように書ける．
+  \item[静的保証] 
+     QuickCheckを用いて\emph{アルゴリズムの形式仕様を静的に検証}し，ライブラリの品質を保っている．
+ \end{description}
+
+ 上述の\emph{Google Summer of Code 2014}では，高速なGr\"{o}bner基底計算アルゴリズムとして知られる$F_4$および$F_5$アルゴリズムの実装を試み，複数の行列ライブラリを統一的に扱うための枠組みや，ライブラリの整備を進めた．
+ その他に，有理係数多項式の因数分解や，代数的数の計算機能なども実装されている．
+
+ 特に，型安全性を最大限実現するために，GHCの型レベル自然数機能を強化する\href{http://hackage.haskell.org/package/type-natural}{\texttt{type-natural}}パッケージや，GHCの型検査器にPresburger算術ソルバを組込むコンパイラプラグイン\href{http://hackage.haskell.org/package/ghc-typelits-presburger}{\texttt{ghc-typelits-presburger}}を開発した．
+ それらを用い，リストや配列，ベクトルなど任意のシーケンシャルなデータ型から固定長のコンテナ型を創り出せる\href{http://hackage.haskell.org/package/sized}{\texttt{sized}}パッケージを実装した．
+
+ 本ライブラリを用いた筑波大学数学類の卒業研究をティーチング・アシスタントとして指導した．
+ また，エクアドル大学のヤチャイ技術大学の研究プロジェクト等でも用いられているようである．
+
+\subsection*{その他の開発活動}
+\begin{itemize}
+ \item Web上で高速かつ高品質な数式描画を可能とする\href{https://khan.github.io/KaTeX/}{\emph{KaTeX}}に幾つかのコマンド・環境を実装し，コミッタ権限を得た．
+       これまで本格的なJavaScript開発は経験していなかったが，\texttt{npm}や\texttt{browserify}，\texttt{flow}などを用いたワークフローには半日程度でキャッチアップ出来た．
+ \item Haskellの\emph{Webフレームワーク\href{https://www.yesodweb.com}{Yesod}}のOAuth認証ライブラリの開発（現在は引退）．
+ \item 『型システム入門 ─プログラミング言語と型の理論─』『Haskellによる並列・並行プログラミング』（ともにオーム社）など定評のある技術書・学術書の邦訳に，出版前レビュワーとして参画・貢献した．
+ \item その他の開発プロジェクトは，GitHub上（\url{https://github.com/konn}）にて見ることが出来る．
+\end{itemize}
+\end{refsection}
+\end{document}
