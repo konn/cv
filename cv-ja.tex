@@ -1,10 +1,11 @@
 \RequirePackage{luatex85}
-\documentclass[a4j]{ltjsarticle}
+\documentclass[a4j,draft]{ltjsarticle}
 \usepackage{mymacros}
 \usepackage{graphicx}
 \usepackage[hiragino-pro]{luatexja-preset}
 \usepackage{luatexja-ruby}
 \usepackage{luatexja-otf}
+\usepackage{fixme}
 \DeclareMathAlphabet{\mathrsfs}{U}{rsfso}{m}{n}
 \renewcommand{\mathscr}[1]{\mathup{\mathrsfs{#1}}}
 \usepackage[super]{nth}
@@ -22,21 +23,23 @@
  {\huge \bfseries \ruby{石}{いし}\ruby{井}{い} \ruby{大海}{ひろみ}}
  \vskip 1em
  {\emph{\Large 基本情報}}\\
- 筑波大学数理物質科学研究科\\
- 数学専攻 博士後期課程\\
- \textsc{E-Mail}: \href{mailto:h-ishii@math.tsukuba.ac.jp}{\nolinkurl{h-ishii@math.tsukuba.ac.jp}}\\
+ DeepFlow 株式会社\\
+ \textsc{E-Mail}: \href{mailto:konn.jinro@gmail.com}{\nolinkurl{h-konn.jinro@gmail.com}}\\
  \textsc{Web Site}: \url{https://konn-san.com}\\
  \textsc{GitHub}: \url{https://github.com/konn}
 \end{center}
 
 \section*{教育・学位}
 \begin{tabular}[t]{@{}p{.2\linewidth}p{.75\linewidth}@{}}
- \begin{minipage}[t]{\linewidth}\emph{博士（理学），予定}\end{minipage} 
- & 2016年4月〜現在．筑波大学数理物質科学研究科数学専攻 博士後期課程\\
+ \begin{minipage}[t]{\linewidth}\emph{博士（理学）}\end{minipage} 
+ & \begin{minipage}[t]{\linewidth}
+    2019年3月．筑波大学数理物質科学研究科数学専攻 博士後期課程・修了\\
+    \emph{博士論文：} Bidirectional Interplay between Mathematics and Computer Science: Safety and Extensibility in Computer Algebra and Haskell
+  \end{minipage}\\
  \begin{minipage}[t]{\linewidth}\emph{修士（理学）}\end{minipage} 
  & \begin{minipage}[t]{\linewidth}
     2016年3月．筑波大学数理物質科学研究科 博士前期課程・修了\\
-   \emph{修士論文:} On Regularity Properties of Sets of Reals and Inaccessible Cardinals
+   \emph{修士論文：} On Regularity Properties of Sets of Reals and Inaccessible Cardinals
    \end{minipage} 
  \\
  \begin{minipage}[t]{\linewidth}\emph{学士（理学）}\end{minipage} 
@@ -45,17 +48,19 @@
 
 \section*{職歴・採用歴}
 \begin{description}
- \item[2017年4月〜2019年3月]
+ \item[2019年4月-現在] DeepFlow株式会社 研究開発部
+ \item[2019年4月-2020年3月] 統計数理研究所 外来研究員
+ \item[2017年4月-2019年3月]
               日本学術振興会特別研究員 DC2
 
               研究課題：『実数の集合の性質の集合論的解明と工学的応用』
- \item[2014年〜2017年] 筑波大学数学類『計算機演習』ティーチング・アシスタント
+ \item[2014年-2017年] 筑波大学数学類『計算機演習』ティーチング・アシスタント
  \item[2014年4月] Google Summer of Code 2014採択
 
             題目：『Haskellによる効率的なGr\"{o}bner基底計算とそのための疎行列対角化アルゴリズムの実装』
- \item[2014年4月〜2017年3月] 筑波大学数学専攻計算機管理アルバイト（www-admin）
- \item[2010年10月〜2014年3月] 株式会社Preferred Infrastructureアルバイト
- \item[2010年8月〜9月] 株式会社Preferred Infrastructureインターン生
+ \item[2014年4月-2017年3月] 筑波大学数学専攻計算機管理アルバイト（www-admin）
+ \item[2010年10月-2014年3月] 株式会社Preferred Infrastructureアルバイト
+ \item[2010年8月-9月] 株式会社Preferred Infrastructureインターン生
 \end{description}
 
 \section*{賞罰・特記事項}
@@ -69,12 +74,18 @@
 \section*{研究業績}
 \subsection*{査読付き会議論文}
 \noindent
+August 2021, \emph{Automatic Differentiation with Higher Infinitesimals, or Computational Smooth Infinitesimal Analysis in Weil Algebra}. Computer Algebra in Scientific Computing 2021, Sochi, Russia.
+
+\noindent
 September 2018, \emph{A Purely Functional Computer Algebra System Embedded in Haskell}. Computer Algebra in Scientific Computing 2018, Lille, France.
 
 \noindent
 September 2015. Oleg Kiselyov and Hiromi ISHII, \emph{Freer Monads, More Extensible effects}. Haskell Symposium 2015, Vancouber, Canada.
 
 \subsection*{学会発表}
+\noindent
+August 2021, \emph{Automatic Differentiation with Higher Infinitesimals, or Computational Smooth Infinitesimal Analysis in Weil Algebra}. Computer Algebra in Scientific Computing 2021, Sochi, Russia, 査読あり.
+
 \noindent
 September 2018, \emph{A Purely Functional Computer Algebra System Embedded in Haskell}. Computer Algebra in Scientific Computing 2018, Lille, France, 査読あり.
 
@@ -90,6 +101,10 @@ November 2017, \emph{Reflection Principle and construction of saturated ideals o
 \end{refsection}
 
 \section*{開発実績}
+\vspace{-1em}
+\noindent \textbf{主要言語・技術要素}: \emph{Haskell, MPI, ParaView, Python, 数値シミュレーション, 計算機代数, FFI, GitHub, CI/CD, GitOps, RESTやGraphQLなどのWeb API利用・設計} \\
+\noindent \textbf{経験済環境}: \emph{JavaScript, TypeScript, Rust, Ruby, C}.
+\vspace{-.5em}
 \begin{refsection}
 
 \subsection*{レポート自動採点システム\leport}
@@ -128,8 +143,33 @@ November 2017, \emph{Reflection Principle and construction of saturated ideals o
  本ライブラリを用いた筑波大学数学類の卒業研究をティーチング・アシスタントとして指導した．
  また，エクアドル大学のヤチャイ技術大学の研究プロジェクト等でも用いられているようである．
 
+\subsection*{大規模数値計算ソルバー開発}
+
+DeepFlow株式会社にて，最新鋭の数学的アルゴリズムに基づいた，Haskell製大規模並列数値ソルバープログラムの開発に従事．
+当該ソルバーはスレッド並列やMPI通信などを活かしたHaskellによる高性能プログラミングの技術を用い，数億セルの並列計算を実現．高い抽象性と拡張性・効率性を両立するためのHaskell内への埋め込みドメイン特化型言語の設計や，型システムの設計等を主に担当する．
+その際に取り組んだ技術的課題と解決策については，数年を経て古くなっているものの，Haskell Day 2019での発表資料（\url{https://speakerdeck.com/konn/da-gui-mo-shu-zhi-ji-suan-wozhi-eru-haskell-nil-nil-pragmatic-haskell-in-large-scale-numerical-computation-nil-nil}）を参考にされたい．
+
+\subsection*{モノレポ依存関係管理ツールGuardianの実装}
+
+上述の大規模数値計算ソルバーは非常に多くのパッケージから成っており、それらの間の依存関係が複雑化することでビルド時間に大きな悪影響が出ていた。
+こうした状況を改善するため、パッケージを複数のグループに分類し、グループ間の依存関係に関する制約を設定させCIで絶えずチェックさせることで、依存関係において疎結合・関心の分離を実現するためのツールGuardianの開発を社内で主導し、OSSとして公開した。
+
+\subsection*{研究・シミュレーション用ワークフローツール開発}
+
+Python, PyTorch, Rye, DVC \fxfatal{ちゃんと書く}
+
+\subsection*{機械学習案件}
+
+Python, PyTorch, Rye, DVC \fxfatal{ちゃんと書く}
+
 \subsection*{その他の開発活動}
 \begin{itemize}
+ \item Haskell の公式 Language Server である Haskell Language Server のメンテナを務める。主な貢献事項は以下の通り：
+  \begin{enumerate}
+    \item Splice Plugin: Template Haskell のスプライスを評価し、その結果でマクロ呼び出しを置換するためのプラグインを実装した。
+    \item Disambiguate Imports: 複数モジュールまたは現在のモジュールで定義され衝突が発生している曖昧な識別子を一意化するための機構を提案し、実装した。
+    \item Eval Pluginの改良: パーザの効率改善、\texttt{:type}や\text{:kind}コマンドの実装などを行った。
+  \end{enumerate}
  \item Web上で高速かつ高品質な数式描画を可能とする\href{https://khan.github.io/KaTeX/}{\emph{KaTeX}}に幾つかのコマンド・環境を実装し，コミッタ権限を得た．
        これまで本格的なJavaScript開発は経験していなかったが，\texttt{npm}や\texttt{browserify}，\texttt{flow}などを用いたワークフローには半日程度でキャッチアップ出来た．
  \item Haskellの\emph{Webフレームワーク\href{https://www.yesodweb.com}{Yesod}}のOAuth認証ライブラリの開発（現在は引退）．

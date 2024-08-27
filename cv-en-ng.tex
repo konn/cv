@@ -1,0 +1,64 @@
+\RequirePackage{luatex85}
+\documentclass{moderncv}
+\usepackage{biblatex}
+% \usepackage[hiragino-pron]{luatexja-preset}
+\moderncvstyle{casual}
+\moderncvcolor{blue}
+\usepackage{CJKutf8}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defbibenvironment{bibliography}
+  {\list%
+     {\printtext[labelnumberwidth]{% label format from numeric.bbx
+        \printfield{labelprefix}%
+        \printfield{labelnumber}}}
+     {\setlength{\topsep}{0pt}% layout parameters from moderncvstyleclassic.sty
+      \setlength{\labelwidth}{\hintscolumnwidth}%
+      \setlength{\labelsep}{\separatorcolumnwidth}%
+      \leftmargin\labelwidth%
+      \advance\leftmargin\labelsep}%
+      \sloppy\clubpenalty4000\widowpenalty4000}
+  {\endlist}
+  {\item}
+
+\addbibresource{cv-references.bib}
+
+\name{Hiromi}{Ishii}
+\title{Curriculum Vitae}
+\born{Born: 1992-01-18}
+\email{konn.jinro@gmail.com}
+\homepage{https://konn-san.com}
+\social[github]{konn}
+\begin{document}
+\makecvtitle
+
+\section{Progiramming Skills}
+
+\section{Education}
+
+\cventry{2016--2019}{Ph.D. in Math}{University of Tsukuba}{Tsukuba-city, Ibaraki, Japan.}{}{%
+  \emph{Research Area}: Mathematical Logic (Set Theory and Formal Logic), Computer Algebra, and Functional Programming.
+  \\
+  \emph{Thesis}: Bidirectional Interplay between Mathematics and Computer Science: Safety and Extensibility in Computer Algebra and Haskell~\cite{ISHII:2019aa}.}
+\cventry{2014--2016}{M.S. in Math}{University of Tsukuba}{Tsukuba-city, Ibaraki, Japan.}{}{\emph{Thesis}: On Regularity Properties of Sets of Reals and Inaccessible Cardinals\cite{ISHII:2016sf}.}
+\cventry{2010--2014}{B.A. in Math}{Waseda University}{Shinjuku-ku, Tokyo, Japan}{Summa cum laude.}{}
+
+\section{Academic and Vocational Carrer}
+
+\cventry{2019--present}{Full-time Researcher and Developer}{DeepFlow, Inc.}{Tokyo, Japan}{}{%
+  Involved deeply in desigining and implementing the innovative numerical simulation software in Haskell from the ground up. Also designed and implemented workflow tools for scientific and industrial simulations for private company and national institutes.}
+\cventry{2019--2020}{Visiting Researcher}{Institute of Statistical Mathematics}{Tokyo, Japan}{}{}
+\cventry{2018--2019}{Part-time Developer}{Clear Code, Inc.}{Tokyo, Japan.}{}{}
+\cventry{2014}{Google Summer of Code 2014}{}{}{}{\emph{Theme}: An Efficient Computational Algebra and Symbolic Linear Algebra Library in Haskell}
+\cventry{2010--2014}{Internship student and Part-Time Developer}{Preferred Infrastructure, Inc.}{Tokyo, Japan}{}{}
+
+\section{Fellowships, Awards, and Special Note}
+\cventry{2017--2019}{Research Fellowship for Young Scientists (DC2)}{Japan Society for the Promotion of Science.}{}{}{\emph{Theme}: Properties of sets of reals and its applications to Computer}
+\cventry{2016}{14th Meikei Prize}{University of Tsukuba}{Tsukuba-city, Ibaraki prefecture, Tokyo}{}{}
+\cventry{2014}{Highest Award of Deans' Prize of School of Fundamental Science and Engineering}{Waseda University}{Tokyo, Japan}{}{}
+
+\nocite{*}
+\defbibnote{note}{Amongst others, I coauthored the paper ``Freer Monads, more extensible effects''~\cite{Kiselyov:2015xy} with O. Kiselyov.}
+\printbibliography[title={Academic Publications},prenote=note]
+
+\end{document}
