@@ -1,0 +1,208 @@
+\RequirePackage{luatex85}
+\documentclass{moderncv}
+\usepackage{biblatex}
+% \usepackage[hiragino-pron]{luatexja-preset}
+\moderncvstyle{casual}
+\moderncvcolor{blue}
+\usepackage{CJKutf8}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defbibenvironment{bibliography}
+  {\list%
+     {\printtext[labelnumberwidth]{% label format from numeric.bbx
+        \printfield{labelprefix}%
+        \printfield{labelnumber}}}
+     {\setlength{\topsep}{0pt}% layout parameters from moderncvstyleclassic.sty
+      \setlength{\labelwidth}{\hintscolumnwidth}%
+      \setlength{\labelsep}{\separatorcolumnwidth}%
+      \leftmargin\labelwidth%
+      \advance\leftmargin\labelsep}%
+      \sloppy\clubpenalty4000\widowpenalty4000}
+  {\endlist}
+  {\item}
+
+\addbibresource{cv-references.bib}
+
+\name{Hiromi}{Ishii}
+\title{Curriculum Vitae}
+\born{Born: 1992-01-18}
+\email{konn.jinro@gmail.com}
+\homepage{https://konn-san.com}
+\social[github]{konn}
+\social[discourse][discourse.haskell.org/u/konn]{Haskell Discourse: @konn}
+\begin{document}
+\makecvtitle
+
+\section{Education}
+
+\cventry{2016--2019}{Ph.D. in Math}{University of Tsukuba}{Tsukuba-city, Ibaraki, Japan.}{}{%
+  \emph{Research Area}: Mathematical Logic (Set Theory and Formal Logic), Computer Algebra, and Functional Programming.
+  \\
+  Thesis: \emph{Bidirectional Interplay between Mathematics and Computer Science: Safety and Extensibility in Computer Algebra and Haskell}~\cite{ISHII:2019aa}.}
+\cventry{2014--2016}{M.S. in Math}{University of Tsukuba}{Tsukuba-city, Ibaraki, Japan.}{}{Thesis: \emph{On Regularity Properties of Sets of Reals and Inaccessible Cardinals}~\cite{ISHII:2016sf}.}
+\cventry{2010--2014}{B.A. in Math}{Waseda University}{Shinjuku-ku, Tokyo, Japan}{Summa cum laude.}{}
+
+\section{Academic and Vocational Carrer}
+
+\cventry{2019--present}{Full-time Researcher and Developer}{DeepFlow, Inc.}{Tokyo, Japan}{}{%
+  Developped the massively-parallel numerical simulation software in Haskell from the ground up. Also designed and implemented simulation workflow tools for private company and national institutes.\newline%
+  %
+  Main achievements:%
+  \begin{itemize}
+    \item Dependently-typed EDSL for massively-parallel solver in Haskell
+      \begin{itemize}
+        \item Designed both for equations and solver/plugin abstractions.
+        \item Custom anonymous and extensible record library, which can be labelled with any kind and has a dedicated type-checker plugin to solve type-level constraints.
+        \item For details, see my slides ``\href{https://speakerdeck.com/konn/da-gui-mo-shu-zhi-ji-suan-wozhi-eru-haskell-nil-nil-pragmatic-haskell-in-large-scale-numerical-computation-nil-nil}{Pragmatic Haskell in Large-Scale Numerical Computation}''~\cite{ISHII:2019hd}.
+      \end{itemize}
+    \item Haskell binding to \href{https://gmsh.info}{Gmsh}, an open-source mesher library.
+      \begin{itemize}
+        \item Using Higher-Kinded Datatypes to provide a type-safe interface for element extrusion.
+      \end{itemize}
+    \item Simulation GitOps workflow tools for industrial and academic institutes.
+      \begin{itemize}
+        \item Executes simulation in parallel either by colaborating with pre-installed job queue or customly implemented scheduler.
+        \item Each indivisual job is specified by a \href{http://hackage.haskell.org/package/shake}{Shake} Build rule.
+        \item Jobs can be scheduled via GitHub Pull Request, and the history can be tracked there.
+        \item Results will be visualised by ParaView and HTML report is hosted either on local storage or R2.
+      \end{itemize}
+  \end{itemize}
+  }
+
+\cventry{2019--2020}{Visiting Researcher}{Institute of Statistical Mathematics}{Tokyo, Japan}{}{Worked on }
+\cventry{2018--2019}{Part-time Developer}{Clear Code, Inc.}{Tokyo, Japan.}{}{}
+\cventry{2014}{Google Summer of Code 2014}{}{}{}{\emph{Theme}: An Efficient Computational Algebra and Symbolic Linear Algebra Library in Haskell}
+\cventry{2010--2014}{Internship student and Part-Time Developer}{Preferred Infrastructure, Inc.}{Tokyo, Japan}{}{}
+
+\section{Fellowships, Awards, and Special Note}
+\cventry{2017--2019}{Research Fellowship for Young Scientists (DC2)}{Japan Society for the Promotion of Science.}{}{}{\emph{Theme}: Properties of sets of reals and its applications to Computer}
+\cventry{2016}{14th Meikei Prize}{University of Tsukuba}{Tsukuba-city, Ibaraki prefecture, Tokyo}{}{}
+\cventry{2014}{Highest Award of Deans' Prize of School of Fundamental Science and Engineering}{Waseda University}{Tokyo, Japan}{}{}
+
+\section{Natural Languages}
+\cvitemwithcomment{Japanese}{Native}{}
+\cvitemwithcomment{English}{Fluent}{(Expired Record: TOEIC 920 (2012))}
+
+\section{Programming Languages}
+\cvitemwithcomment{Haskell}{Expert}{Having been using for more than 15 years, and used as the main language in production for 5 years.}
+\cvitemwithcomment{Python}{Moderate}{Using in production for Machine Learning.}
+\cvitemwithcomment{Agda}{Hobbyist}{Can write easy algebraic proofs, and have been played around with Cubical Type Theory for a while.}
+\cvitemwithcomment{JavaScript}{Moderate}{Used for automation and via WASM FFI}
+\cvitemwithcomment{TypeScript}{Newbie}{Used for automation.}
+\cvitemwithcomment{Rust}{Newbie}{Very interested in.}
+\cvitemwithcomment{C}{Undergraduate level}{Mainly called via C FFI from Haskell.}
+
+\section{Technical Skills}
+
+I have been using advanced type-level machineries of GHC, including GADTs, Data Kinds, Type Families, Linear Types, amongst others.
+Especially, I have expertise in desigining statically/dependently-tyepd EDLs in Haskell for scientific and/or mathematical computations.
+In doing so, I have developed several libraries and type-checker plugins for GHC, and have been using in production.
+
+To implement efficient applications, I have been using the following technologies for many years:
+
+\begin{itemize}
+  \item Concurrency: Threads, STM, and \texttt{async}-like libraries.
+  \item Distributed Computation: OpenMPI and Cloud Haskell.
+  \item Streaming: Currently, I am using \texttt{streaming} family for streaming processing, but have a lengthy experience with \texttt{conduit} formerly.
+  \item Linear Types: mainly used for array allocation and pure mutation.
+  \item FFI: having been using to implement binding libraries. Both via GHC's FFI functionality and/or \texttt{inline-c}.
+\end{itemize}
+
+I am using \texttt{rio} and/or \texttt{effectful} to build enterprise-level applications.
+
+I have been using ParaView and its Python interface for scientific visualization.
+
+\section{Selected Open Source Contributions}
+
+Any other contributions can be found on my GitHub profile: \url{https://github.com/konn}.
+
+\subsection{Guardian - a dependency constraint enforcer for Haskell monorepo}
+
+URL: \url{https://github.com/deepflowinc/guardian#readme}
+
+Guardian is a tool to enforce dependency constraints on a Haskell monorepo.
+When maitaining a huge monorepo, it is crucial to keep decoupling between package. Otherwise, small changes in one package can cause an essentially redundant recompilation.
+This tool provides a way to group packages into several domains, and specify which group can depend on which. In this way, one can prevent bad dependency and keep the entire repository loosely coupled.
+
+The tool is developed as part of my work at DeepFlow, Inc. and now open-sourced.
+
+For details, see the README on GitHub: \url{https://github.com/deepflowinc/guardian#readme}.
+
+\subsection{Haskell on Cloudflare Worker Library}
+URL: \url{https://github.com/konn/ghc-wasm-earthly}
+
+Using the recent WASM backend of GHC, I have developed a library to run Haskell on Cloudflare Worker.
+It consists of the following:
+
+\begin{itemize}
+  \item \texttt{ghc-wasm-jsobjects}: A library to simulate JavaScript Object System in Haskell, wrapping \texttt{JSVal} inside.
+  \item \texttt{webidl-codegen-wasm}: A library to generate Haskell FFI bindings for APIs defined by WebIDL.
+  \item \texttt{cloudflare-worker}: A raw binding to Cloudflare Worker API.
+\end{itemize}
+
+I am currently interested in extending servant to run on Cloudflare Worker and usage of Linear Types to ensure the safety of the code.
+
+For details, see my post~\cite{ISHII:2024ws} on Discourse.
+
+\subsection{Type-Level Programming Utilities}
+
+I have been developping the several type-level programming utilities for Haskell and many of them are used in production.
+Here is the table:
+
+\begin{itemize}
+  \item \href{http://hackage.haskell.org/package/ghc-typelits-presburger}{\texttt{ghc-typelits-presburger}}: A GHC plugin to solve Presburger Arithmetic (i.e. theory of integer programming with quantifiers) at type-level. This can solve linear (in-)euqalities at type-level.
+  \item \href{http://hackage.haskell.org/package/type-natural}{\texttt{type-natural}}: A library providing singletons for type-level naturals and proof of their properties.
+\end{itemize}
+
+\subsection{Missing Utilities for Linear Haskell}
+
+URL: \url{https://github.com/konn/linear-extra}
+
+This monorepo includes missing utilities for Linear Haskell, which are mainly intended to be used with linear-base.
+It includes reference counting, token-base resource management as a poor man's alternative of linear constraints, generic vector builder, and so on.
+
+\subsection{Some contributions to Haskell Language Server}
+
+I am one of the contributors of Haskell Language Server.
+I contributed the following features:
+
+\begin{itemize}
+  \item \emph{Splice Plugin} to expand Template Haskell splices in-place.
+  \item \emph{Import Disambiguation} mechanism to hide conflicting imports.
+  \item Improvements to \emph{Eval Plugin}, including the refactoring of its parser and adding \texttt{:type} and \texttt{:kind} commands.
+\end{itemize}
+
+\subsection{Computer Algebra System \texttt{computational-algebra}}
+ \vspace{-.5em}\noindent
+ \textsc{Web Site}: \url{https://konn-san.com/computational-algebra}\newline
+ \textbf{Keywords}: \emph{Google Summer of Code 2014, CASC 2018, Computer Algebra, Type-level programming, Parallel Computation, Formal Method.}
+
+ \vspace{.5em}
+ A safe and reliable computational algebra system implemented as an EDSL in Haskell, powered by the progressive type-system of Glasgow Haskell Compiler.
+ It enjoys the following advantages:
+ \begin{description}
+  \item[Type-Safety] Encoding fields and arity as a type, it prevents wrong operations;
+  \item[Extensibility] Providing type-classes for polynomials and algebraic systems, users can enjoy various algorithms regardless to implementation detail;
+  \item[Intuitive] The library automatically gives the injection mapping between two distinct rings such as $\mathbb{Q}[x, y, z]$ and $\mathbb{Q}[x,z,y, w]$, based on their types.
+             One can also write polynomials much alike to ordinary Math, for example: \verb|#x ^ 2 + #z * #x - 2|.
+  \item[Static Verification] 
+     Using QuickCheck, correctness of algorithms are statically verified.
+ \end{description}
+
+ In \emph{Google Summer of Code 2014}, I tried to implement two algorithms $F_4$ and $F_5$, which are known to be the fastest state-of-the-art algorithms for Gr\"{o}bner basis computation.
+ To that end, I implemented a framework to treat multiple matrix libraries uniformly.
+ Also, other algorithms, such as polynomial factorisation and algebraic real computation, are provided.
+ Large part of these implementation is verified with the method of property-based testing.
+
+ To achieve type-safety in a full spectrum, I implemented two libraries: the \href{http://hackage.haskell.org/package/type-natural}{\texttt{type-natural}} package and the \href{http://hackage.haskell.org/package/ghc-typelits-presburger}{\texttt{ghc-typelits-presburger}} compiler plugin.
+ The former provides the abstraction over various type-level naturals, and the latter augments the GHC's type-checker with Presburger Arithmetic solver.
+ Based on them, I implemented the \href{http://hackage.haskell.org/package/sized}{\texttt{sized}} package, which provides a functionality to turn arbitrary sequential data-types into fixed-size container, indexed with type-level naturals, used for efficient representation of monomials.
+
+ As a teaching assistant, I supervised the graduation work using this library in Mathematics Department in University of Tsukuba.
+ For more details, see the recent paper~\cite{ISHII:2018ek}.
+
+\nocite{*}
+\defbibnote{note}{Amongst others, I coauthored the paper ``Freer Monads, more extensible effects''~\cite{Kiselyov:2015xy} with O. Kiselyov.}
+\printbibliography[title={Publications},prenote=note]
+
+\end{document}
