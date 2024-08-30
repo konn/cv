@@ -1,0 +1,106 @@
+{
+  "catex.environment.dictionary": [
+    {
+      "include": "defaults/environments.json"
+    },
+    {
+      "name": "tikzpicture",
+      "args": ["options"]
+    },
+    {
+      "name": "scope",
+      "args": [
+        {
+          "kind": "optional",
+          "placeholder": "feat=val"
+        }
+      ]
+    },
+    {
+      "name": "fact",
+      "args": [
+        {
+          "kind": "optional",
+          "placeholder": "title"
+        }
+      ]
+    },
+    {
+      "name": "remark",
+      "args": [
+        {
+          "kind": "optional",
+          "placeholder": "title"
+        }
+      ]
+    },
+    {
+      "name": "definition",
+      "args": [
+        {
+          "kind": "optional",
+          "placeholder": "title"
+        }
+      ]
+    },
+    {
+      "name": "theorem",
+      "args": [
+        {
+          "kind": "optional",
+          "placeholder": "title"
+        }
+      ]
+    },
+    {
+      "name": "corollary",
+      "args": [
+        {
+          "kind": "optional",
+          "placeholder": "title"
+        }
+      ]
+    },
+    {
+      "name": "lemma",
+      "args": [
+        {
+          "kind": "optional",
+          "placeholder": "title"
+        }
+      ]
+    },
+    {
+      "name": "notation",
+      "args": [
+        {
+          "kind": "optional",
+          "placeholder": "title"
+        }
+      ]
+    },
+    {
+      "name": "proof",
+      "args": [
+        {
+          "kind": "optional",
+          "placeholder": "title"
+        }
+      ]
+    },
+    {
+      "name": "alignat*",
+      "args": [
+        {
+          "kind": "fixed"
+        }
+      ]
+    },
+    {
+      "name": "gather*"
+    },
+    {
+      "name": "refsection"
+    }
+  ]
+}
