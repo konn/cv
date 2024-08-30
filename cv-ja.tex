@@ -92,10 +92,10 @@
  \item 日本学術振興会特別研究員DC2，（2017年〜2019年）
  \item 第十四回茗渓会賞（2016年）
  \item 2013年度早稲田大学基幹理工学部長賞最優秀賞（第一回），基幹理工学部卒業生総代
- \item Web数式描画ライブラリ\href{https://github.com/Khan/KaTeX}{KaTeX}およびHaskell製Webフレームワーク\href{https://www.yesodweb.com}{Yesod}コミッタ
 \end{itemize}
 
 \section*{研究業績}
+
 \subsection*{査読付き会議論文}
 \noindent
 August 2021, \emph{Automatic Differentiation with Higher Infinitesimals, or Computational Smooth Infinitesimal Analysis in Weil Algebra}. Computer Algebra in Scientific Computing 2021, Sochi, Russia.
@@ -120,8 +120,9 @@ March 2016, \emph{Freer Monads, More Extensible Effects}. Programming and Progra
 November 2017, \emph{Reflection Principle and construction of saturated ideals on $\Pow_{\omega_1} \lambda$}. Workshop on Iterated Forcing Theory and Cardinal Invariants, Kyoto-prefecture, Japan, 査読なし.
 
 \begin{refsection}
- \nocite{ISHII:2016sf,Kiselyov:2015xy}
- \printbibliography[title=論文,heading=subbibliography]
+  \nocite{ISHII:2016sf,ISHII:2018ek,ISHII:2019aa,Ishii:2021tp,Kiselyov:2015xy}
+  \defbibnote{exteff}{特に、Oleg Kiselyov氏との共著論文``Freer Monads, More Extensible Effects''~\cite{Kiselyov:2015xy}は現代のイフェクトシステムの隆盛につながるもので、特筆に値する。}
+ \printbibliography[title=論文,heading=subbibliography,prenote=exteff]
 \end{refsection}
 
 \section*{自然言語能力}
@@ -154,7 +155,6 @@ November 2017, \emph{Reflection Principle and construction of saturated ideals o
   \item[形式手法] 性質ベーステスト（QuickCheck, Falsify, hypothesis）リグレッションテスト、依存型によるコンパイル時検証
   \item[クラウド技術] AWS, GCP, Azure, さくらのクラウド, Terraform, Packer
 \end{description}
-
 
 \section*{オープンソース開発実績（一部）}
 \begin{refsection}
