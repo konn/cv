@@ -9,14 +9,14 @@
 \DeclareMathAlphabet{\mathrsfs}{U}{rsfso}{m}{n}
 \renewcommand{\mathscr}[1]{\mathup{\mathrsfs{#1}}}
 \usepackage[super]{nth}
+% \usepackage{url}	% required for `\url' (yatex added)
+\usepackage{amssymb}	% required for `\mathbb' (yatex added)
 \usepackage[bookmarksnumbered,pdfproducer={LuaLaTeX},%
             luatex,psdextra,pdfusetitle,pdfencoding=auto]{hyperref}
 \usepackage[backend=biber,style=math-numeric,sorting=none]{biblatex}
 \addbibresource{cv-references.bib}
 \renewcommand{\emph}[1]{\textbf{\textgt{#1}}}
 
-\usepackage{url}	% required for `\url' (yatex added)
-\usepackage{amssymb}	% required for `\mathbb' (yatex added)
 \begin{document}
 \begin{center}
  {\huge \bfseries \ruby{石}{いし}\ruby{井}{い} \ruby{大海}{ひろみ}}
@@ -29,6 +29,9 @@
  \textsc{Zenn}: \url{https://zenn.dev/konn}
 \end{center}
 
+\tableofcontents
+
+\phantomsection\addcontentsline{toc}{section}{教育・学位}
 \section*{教育・学位}
 \begin{tabular}[t]{@{}p{.2\linewidth}p{.75\linewidth}@{}}
  \begin{minipage}[t]{\linewidth}\emph{博士（理学）}\end{minipage} 
@@ -46,32 +49,17 @@
  & 2014年3月．早稲田大学基幹理工学部数学科・卒 \\
 \end{tabular}
 
-\section*{職歴・採用歴}
+\phantomsection\addcontentsline{toc}{section}{職務経歴}
+\section*{職務略歴}
 \begin{refsection}
   \newrefcontext[labelprefix={J-}] 
 \begin{description}
  \item[2019年4月-現在] DeepFlow株式会社 研究開発部．
  
-  Haskellによる大規模並列数値計算ソルバーElkurageの設計・開発に従事．当該ソルバーはスレッド並列やMPI通信などを活かしたHaskellによる高性能プログラミングの技術を用い，数億セルの並列計算を実現．高い抽象性と拡張性・効率性を両立するためのHaskell内への埋め込みドメイン特化型言語の設計や，型システムの設計等を主に担当する．また，研究・産業用途のシミュレーションワークフロー・最適化ツールを，顧客との綿密なコミュニケーションを通じて設計・開発．
+  Haskellによる大規模並列数値計算ソルバーElkurageの設計・開発に従事．当該ソルバーはスレッド並列やMPI通信などを活かしたHaskellによる高性能プログラミングの技術を用い，数億セルの並列計算を実現．高い抽象性と拡張性・効率性を両立するためのHaskell内への埋め込みドメイン特化型言語の設計や，型システムの設計，数理的アルゴリズムの新規実装等を主に担当する．
+  また，研究・産業用途のシミュレーションワークフロー・最適化ツールを，顧客との綿密なコミュニケーションを通じて設計・開発．
+  また，大学院生インターンのメンターを複数担当するなど，人材教育にも携わる．
 
-  主な実績は以下の通り：
-  \begin{itemize}
-    \item 大規模数値計算ソルバ用の依存型つきHaskell製DSLの設計・実装
-    \begin{itemize}
-      \item 個別の方程式系や，ソルバのプラグイン機構などを適切な依存型を用いて代数的に抽象化・実装
-      \item 任意カインドでラベル付け可能な拡張可能レコードを実装し，型制約の自動解消を行う型検査器プラグインも併せて開発
-      \item 詳細については，Haskell Day 2019での発表資料~\cite{ISHII:2019hd-ja}やプレプリント~\cite{ISHII:2021wt}を参照．
-    \end{itemize}
-    \item メッシュ生成ライブラリGmshへのHaskellバインディングを，Higher-Kinded Datatypesの技法などを用いて実装
-    \item 産業・学術用シミュレーションGitOpsワークフローツールの開発
-      \begin{itemize}
-      \item 単一の設定ファイルから必要な設定・入力をパラメトリックに生成
-      \item クラスタにインストール済のジョブマネージャまたはスレッド並列・Cloud Haskellなどを用いた独自実装のクエジューラを通じて並列で多数のジョブを同時実行
-      \item ParaViewのPythonスクリプティング機能による自動可視化
-      \item 各ワークフローのジョブ間の複雑な依存関係はShakeの規則により記述
-      \item 実行結果のレポートや比較表をHTMLなどとしてHTMLやPDFで出力，R2やローカルストレージ上に保存しServantサーバよりサーブ
-      \end{itemize}
-  \end{itemize}
  \item[2019年4月-2020年3月] 統計数理研究所 外来研究員
  \item[2017年4月-2019年3月]
               日本学術振興会特別研究員 DC2
@@ -85,8 +73,37 @@
  \item[2010年10月-2014年3月] 株式会社Preferred Infrastructureアルバイト
  \item[2010年8月-9月] 株式会社Preferred Infrastructureインターン生
 \end{description}
+
+\phantomsection\addcontentsline{toc}{subsection}{DeepFlow社における主な業績}
+\subsection*{DeepFlow社における主な業績}
+
+\begin{itemize}
+  \item 大規模数値計算ソルバ用の依存型つきHaskell製DSLの設計・実装
+  \begin{itemize}
+    \item 数学的な観点から数値計算ソルバの適切な抽象化を考案し，数値計算の理論を専門とする同僚および実装を担当する同僚の双方と綿密なディスカッションの上DSLを設計・実装．
+    \item 個別の方程式系や，ソルバのプラグイン機構などを適切な依存型を用いて代数的に抽象化・実装
+    \item 任意カインドでラベル付け可能な拡張可能レコードを実装し，型制約の自動解消を行う型検査器プラグインも併せて開発
+    \item 詳細については，Haskell Day 2019での発表資料~\cite{ISHII:2019hd-ja}やプレプリント~\cite{ISHII:2021wt}を参照．
+  \end{itemize}
+  \item メッシュ生成ライブラリGmshへのHaskellバインディングを，Higher-Kinded Datatypesの技法などを用いて実装
+  \item 産業・学術用シミュレーションGitOpsワークフローツールの開発
+    \begin{itemize}
+    \item 単一の設定ファイルから必要な設定・入力をパラメトリックに生成
+    \item クラスタにインストール済のジョブマネージャまたはスレッド並列・Cloud Haskellなどを用いた独自実装のスケジューラを通じて並列で多数のジョブを同時実行
+    \item ジョブは端末上より直接の実行，またはGitHub上のPull Requestよりコメントの形で投入する．
+    \item ParaViewのPythonスクリプティング機能による自動可視化
+    \item 各ワークフローのジョブ間の複雑な依存関係はShakeの規則により記述
+    \item 実行結果のレポートや比較表をHTMLなどとしてHTMLやPDFで出力，R2やローカルストレージ上に保存しServantサーバよりサーブ
+    \end{itemize}
+  \item 機械学習の科学計算応用に関する共同研究に数年にわたって参画，オペレーションや研究上のアイデアに関する議論に主体的に参加し，またインターンのメンターを担当した．
+\end{itemize}
+
+\phantomsection\addcontentsline{toc}{subsection}{職歴欄参考文献}
 \printbibliography[title={職歴欄参考文献},heading=subbibliography]
+
 \end{refsection}
+
+\phantomsection\addcontentsline{toc}{section}{賞罰・特記事項}
 \section*{賞罰・特記事項}
 \begin{itemize}
  \item 日本学術振興会特別研究員DC2，（2017年〜2019年）
@@ -94,8 +111,10 @@
  \item 2013年度早稲田大学基幹理工学部長賞最優秀賞（第一回），基幹理工学部卒業生総代
 \end{itemize}
 
+\phantomsection\addcontentsline{toc}{section}{研究業績}
 \section*{研究業績}
 
+\phantomsection\addcontentsline{toc}{subsection}{査読付き会議論文}
 \subsection*{査読付き会議論文}
 \noindent
 August 2021, \emph{Automatic Differentiation with Higher Infinitesimals, or Computational Smooth Infinitesimal Analysis in Weil Algebra}. Computer Algebra in Scientific Computing 2021, Sochi, Russia.
@@ -106,6 +125,7 @@ September 2018, \emph{A Purely Functional Computer Algebra System Embedded in Ha
 \noindent
 September 2015. Oleg Kiselyov and Hiromi ISHII, \emph{Freer Monads, More Extensible effects}. Haskell Symposium 2015, Vancouber, Canada.
 
+\phantomsection\addcontentsline{toc}{subsection}{学会発表}
 \subsection*{学会発表}
 \noindent
 August 2021, \emph{Automatic Differentiation with Higher Infinitesimals, or Computational Smooth Infinitesimal Analysis in Weil Algebra}. Computer Algebra in Scientific Computing 2021, Sochi, Russia, 査読あり.
@@ -120,46 +140,80 @@ March 2016, \emph{Freer Monads, More Extensible Effects}. Programming and Progra
 November 2017, \emph{Reflection Principle and construction of saturated ideals on $\Pow_{\omega_1} \lambda$}. Workshop on Iterated Forcing Theory and Cardinal Invariants, Kyoto-prefecture, Japan, 査読なし.
 
 \begin{refsection}
+  \phantomsection\addcontentsline{toc}{subsection}{論文}
   \nocite{ISHII:2016sf,ISHII:2018ek,ISHII:2019aa,Ishii:2021tp,Kiselyov:2015xy}
-  \defbibnote{exteff}{特に、Oleg Kiselyov氏との共著論文``Freer Monads, More Extensible Effects''~\cite{Kiselyov:2015xy}は現代のイフェクトシステムの隆盛につながるもので、特筆に値する。}
+  \defbibnote{exteff}{特に，Oleg Kiselyov氏との共著論文``Freer Monads, More Extensible Effects''~\cite{Kiselyov:2015xy}は現代のイフェクトシステムの隆盛につながるもので，特筆に値する．}
  \printbibliography[title=論文,heading=subbibliography,prenote=exteff]
 \end{refsection}
 
-\section*{自然言語能力}
+\phantomsection\addcontentsline{toc}{section}{職務上の能力}
+\section*{職務上の能力}
+
+\phantomsection\addcontentsline{toc}{subsection}{自然言語}
+\subsection*{自然言語能力}
 \begin{description}
   \item[日本語] 母語
   \item[英語] 流暢（参考記録：TOEIC 920点（2012年））
 \end{description}
 
-\section*{プログラミング言語能力}
+\phantomsection\addcontentsline{toc}{subsection}{プログラミング言語}
+\subsection*{プログラミング言語能力}
 
 \begin{description}
-  \item[Haskell] エキスパート。公私ともに主要利用言語。
-  \item[Python] 中級（機械学習案件や可視化に利用経験あり。環境管理にはRyeを使用）
-  \item[Agda] 趣味（代数的性質の証明や、Cubical Type Theoryの利用経験あり）
+  \item[Haskell] エキスパート．公私ともに主要利用言語．
+  \item[Python] 中級（機械学習案件や可視化に利用経験あり．環境管理にはRyeを使用）
+  \item[Agda] 趣味（代数的性質の証明や，Cubical Type Theoryの利用経験あり）
   \item[JavaScript / TypeScript] 中級（一部自動化やGitHub Actionsなどに）
   \item[Rust] 初心者（非常に興味あり）
   \item[C] 学部卒程度（HaskellのFFIバインディングライブラリを開発する程度の技能はあり）
 \end{description}
 
-\section*{技術要素}
+\phantomsection\addcontentsline{toc}{subsection}{ソフトウェア技術要素}
+\subsection*{ソフトウェア技術要素}
 以下の技術要素に熟達している：
 
 \begin{description}
-  \item[並列・分散処理] スレッド並列、STM、\texttt{async}型ライブラリ、Cloud Haskell、Open MPI
-  \item[ストリーム処理] Haskellにおいては\texttt{streaming}ライブラリーを利用。\texttt{conduit}系統の利用経験も長い。
-  \item[EDSLの設計] ドメインに応じたHaskell内DSLの設計・実装経験豊富。
-  \item[線型型] リソース割り当てや管理などに利用。
+  \item[並列・分散処理] スレッド並列，STM，\texttt{async}型ライブラリ，Cloud Haskell，Open MPI
+  \item[ストリーム処理] Haskellにおいては\texttt{streaming}ライブラリーを利用．\texttt{conduit}系統の利用経験も長い．
+  \item[EDSLの設計] ドメインに応じたHaskell内DSLの設計・実装経験豊富．
+  \item[線型型] リソース割り当てや管理などに利用．
   \item[コンテナ技術] Docker, Singularity
   \item[CI/CD] GitHub Actions, GitLab CI/CD
-  \item[形式手法] 性質ベーステスト（QuickCheck, Falsify, hypothesis）リグレッションテスト、依存型によるコンパイル時検証
-  \item[クラウド技術] AWS, GCP, Azure, さくらのクラウド, Terraform, Packer
+  \item[形式手法] 性質ベーステスト（QuickCheck, Falsify, hypothesis）リグレッションテスト，依存型によるコンパイル時検証
+  \item[クラウド技術] AWS, GCP, Azure, さくらのクラウド, Terraform, Packer, Cloudflare
 \end{description}
 
+\phantomsection\addcontentsline{toc}{subsection}{価値観}
+\subsection*{価値観}
+
+\subsubsection*{職場環境について}
+\begin{itemize}
+  \item 製品づくりには，同僚や取引先・ユーザなどとのコミュニケーションが必要不可欠．
+  \item そのためには，密すぎず疎すぎもしない，風通しのよい職場環境を用意することが何よりも重要．
+  \item もちろん，一人で自由に作業できる時間も同じくらい重要であり，互いに尊重しつつ，一定の裁量をもって決断し仕事に望むこと，結果をフィードバックしていくことが大切．
+  \item マネージャーの責務はこうしたことができる環境の構築・維持にあり，放任的すぎてもいけないし，マイクロマネジメントをしすぎてもいけない．
+  \item リモート作業を中心とし，課題は適宜オンラインや必要に応じてFace-to-faceで話す形の形態が望ましい．
+\end{itemize}
+
+\subsubsection*{やりたい仕事}
+\begin{itemize}
+  \item Evilな仕事はしない．
+  \item 成果と意義が実感できる仕事がしたい．
+  \item 関数型パラダイム・静的／漸進的型づけなど，理論的背景をもったプログラミング技術を適度に用いた製品開発に携わりたい．
+  \begin{itemize}
+    \item Haskellの先端的な機能を活かす仕事が望ましいが，必要に応じて他の言語を使うことも厭わない（適材適所）
+    \item Rustにも興味があり，書く仕事があれば取り組んでみたい
+  \end{itemize}
+  \item 英語能力や数学能力など，私個人のスキルを活かせるとなおよい．
+  \item 製品そのものだけでなく，開発・運用上の内部的な問題についても，エンジニアリングで解決していくという気概を持てる仕事がよい．
+\end{itemize}
+
+\phantomsection\addcontentsline{toc}{section}{オープンソース開発実績（一部）}
 \section*{オープンソース開発実績（一部）}
 \begin{refsection}
 \newrefcontext[labelprefix={OSS-}] 
 
+\phantomsection\addcontentsline{toc}{subsection}{モノレポ依存関係管理ツールGuardian}
 \subsection*{モノレポ依存関係管理ツールGuardian}
 \vspace{-1em}
 \noindent
@@ -170,6 +224,7 @@ DeepFlowのプロダクトは非常に多くの内製パッケージから成っ
 こうした状況を改善するため，パッケージを複数のグループに分類し，グループ間の依存関係に関する制約を設定させCIで絶えずチェックさせることで，依存関係において疎結合・関心の分離を実現するためのツールGuardianの開発を社内で主導し，OSSとして公開した．
 ツールの詳細についてはZenn上のブログ記事~\cite{ISHII:2023gd}を参照．
 
+\phantomsection\addcontentsline{toc}{subsection}{Haskell用Cloudflare Workerライブラリ}
 \subsection*{Haskell用Cloudflare Workerライブラリ}
 \vspace{-1em}
 \noindent
@@ -188,24 +243,27 @@ GHC 9.10より実装された，WASMバックエンドのJavaScript FFI機能を
 
 これらのライブラリを用いてServantをWorkers上に移植したり，線型型を用いたよりリソース安全な定式化を追求するのが目下の目標である．
 
+\phantomsection\addcontentsline{toc}{subsection}{Haskell向け依存型プログラミング用ライブラリ群}
 \subsection*{Haskell向け依存型プログラミング用ライブラリ群}
 Haskellでの依存型を用いたプログラミングを支援するためのライブラリ群をいくつか開発し，業務においても利用されている．
 
 \begin{itemize}
-  \item \texttt{ghc-typelits-presburger}~\cite{ghc-typelits-presburger}: Presburger算術（整数計画法の理論）の範囲の型レベル等式・不等式制約を自動的に解消する型検査器プラグイン。Singletons版もあり。
-  \item \texttt{type-natural}~\cite{type-natural}: GHCの型レベル自然数に対するsingletonと種々の性質の証明を提供するライブラリ。
-  \item \texttt{sized}~\cite{sized}: ベクトルなどに型レベルで静的に長さをつけて扱うためのライブラリ。
+  \item \texttt{ghc-typelits-presburger}~\cite{ghc-typelits-presburger}: Presburger算術（整数計画法の理論）の範囲の型レベル等式・不等式制約を自動的に解消する型検査器プラグイン．Singletons版もあり．
+  \item \texttt{type-natural}~\cite{type-natural}: GHCの型レベル自然数に対するsingletonと種々の性質の証明を提供するライブラリ．
+  \item \texttt{sized}~\cite{sized}: ベクトルなどに型レベルで静的に長さをつけて扱うためのライブラリ．
 \end{itemize}
 
+\phantomsection\addcontentsline{toc}{subsection}{Linear Haskell向けユーティリティライブラリ}
 \subsection*{Linear Haskell向けユーティリティライブラリ}
 \vspace{-1em}
 \noindent
 \emph{URL}: \url{https://github.com/konn/linear-extra}
 \vspace{1em}
 
-Linear Haskellを実用する上で便利な機能のうち、\texttt{linear-base}に欠けているものを提供するライブラリ。参照カウンタや任意ベクトルの線型割り当て機能、Linear Constraint導入までの代替手段である証拠ベースの資源割り当て機能などを提供する。
-Haskellにおける線型型については、Zenn記事~\cite{ISHII:2023lh1,ISHII:2023lh2}の執筆を通して日本語圏での普及に務めている。
+Linear Haskellを実用する上で便利な機能のうち，\texttt{linear-base}に欠けているものを提供するライブラリ．参照カウンタや任意ベクトルの線型割り当て機能，Linear Constraint導入までの代替手段である証拠ベースの資源割り当て機能などを提供する．
+Haskellにおける線型型については，Zenn記事~\cite{ISHII:2023lh1,ISHII:2023lh2}の執筆を通して日本語圏での普及に務めている．
 
+\phantomsection\addcontentsline{toc}{subsection}{Haskell Language Serverのメンテナー}
 \subsection*{Haskell Language Serverのメンテナー}
 Haskell の公式言語サーバ（IDEバックエンド）であるHaskell Language Serverのメンテナの一人を務める．主な貢献事項は以下の通り：
   \begin{enumerate}
@@ -214,6 +272,7 @@ Haskell の公式言語サーバ（IDEバックエンド）であるHaskell Lang
     \item Eval Pluginの改良: パーザの効率改善，\texttt{:type}や\text{:kind}コマンドの実装などを行った．
   \end{enumerate}
 
+\phantomsection\addcontentsline{toc}{subsection}{計算機代数システム\texttt{computational-algebra}}
 \subsection*{計算機代数システム\texttt{computational-algebra}}
 \vspace{-1em}
 \noindent
@@ -240,6 +299,7 @@ Haskell の公式言語サーバ（IDEバックエンド）であるHaskell Lang
  本ライブラリを用いた筑波大学数学類の卒業研究をティーチング・アシスタントとして指導した．
  また，エクアドル大学のヤチャイ技術大学の研究プロジェクト等でも用いられているようである．
 
+\phantomsection\addcontentsline{toc}{subsection}{その他の開発活動}
 \subsection*{その他の開発活動}
 \begin{itemize}
  \item Web上で高速かつ高品質な数式描画を可能とする\href{https://khan.github.io/KaTeX/}{\emph{KaTeX}}に幾つかのコマンド・環境を実装し，コミッタ権限を得た．
@@ -249,6 +309,7 @@ Haskell の公式言語サーバ（IDEバックエンド）であるHaskell Lang
  \item その他の開発プロジェクトは，GitHub上（\url{https://github.com/konn}）にて見ることが出来る．
 \end{itemize}
 
+\phantomsection\addcontentsline{toc}{subsection}{OSS参考文献}
 \printbibliography[title={OSS参考文献},heading=subbibliography,sorting=none]
 \end{refsection}
 \end{document}
