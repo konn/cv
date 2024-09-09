@@ -1,5 +1,5 @@
 \RequirePackage{luatex85}
-\documentclass[a4j,draft]{ltjsarticle}
+\documentclass[a4j]{ltjsarticle}
 \usepackage{mymacros}
 \usepackage{graphicx}
 \usepackage[hiragino-pro]{luatexja-preset}
@@ -9,20 +9,19 @@
 \DeclareMathAlphabet{\mathrsfs}{U}{rsfso}{m}{n}
 \renewcommand{\mathscr}[1]{\mathup{\mathrsfs{#1}}}
 \usepackage[super]{nth}
-% \usepackage{url}	% required for `\url' (yatex added)
 \usepackage{amssymb}	% required for `\mathbb' (yatex added)
-\usepackage[bookmarksnumbered,pdfproducer={LuaLaTeX},%
+\usepackage[bookmarksnumbered,pdfproducer={LuaLaTeX},linktoc=all,%
             luatex,psdextra,pdfusetitle,pdfencoding=auto]{hyperref}
 \usepackage[backend=biber,style=math-numeric,sorting=none]{biblatex}
 \addbibresource{cv-references.bib}
 \renewcommand{\emph}[1]{\textbf{\textgt{#1}}}
+\hypersetup{linktoc=section}
 
 \begin{document}
 \begin{center}
  {\huge \bfseries \ruby{石}{いし}\ruby{井}{い} \ruby{大海}{ひろみ}}
  \vskip 1em
  {\emph{\Large 基本情報}}\\
- DeepFlow 株式会社\\
  \textsc{E-Mail}: \href{mailto:konn.jinro@gmail.com}{\nolinkurl{konn.jinro@gmail.com}}\\
  \textsc{Web Site}: \url{https://konn-san.com}\\
  \textsc{GitHub}: \url{https://github.com/konn}\\
