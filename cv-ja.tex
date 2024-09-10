@@ -1,13 +1,13 @@
 \RequirePackage{luatex85}
 \documentclass[a4j]{ltjsarticle}
-\usepackage{mymacros}
 \usepackage{graphicx}
-\usepackage[hiragino-pro]{luatexja-preset}
+\usepackage[haranoaji]{luatexja-preset}
 \usepackage{luatexja-ruby}
 \usepackage{luatexja-otf}
+\usepackage{macros}
 \usepackage{fixme}
 \DeclareMathAlphabet{\mathrsfs}{U}{rsfso}{m}{n}
-\renewcommand{\mathscr}[1]{\mathup{\mathrsfs{#1}}}
+\newcommand{\mathscr}[1]{\mathup{\mathrsfs{#1}}}
 \usepackage[super]{nth}
 \usepackage{amssymb}	% required for `\mathbb' (yatex added)
 \usepackage[bookmarksnumbered,pdfproducer={LuaLaTeX},linktoc=all,%
@@ -268,7 +268,7 @@ Haskell の公式言語サーバ（IDEバックエンド）であるHaskell Lang
   \begin{enumerate}
     \item Splice Plugin: Template Haskellマクロを評価し，その結果でマクロ呼び出しを置換するためのプラグインを実装した．
     \item Disambiguate Imports: 複数モジュールまたは現在のモジュールで定義され衝突が発生している曖昧な識別子を一意化するための機構を提案し，実装した．
-    \item Eval Pluginの改良: パーザの効率改善，\texttt{:type}や\text{:kind}コマンドの実装などを行った．
+    \item Eval Pluginの改良: パーザの効率改善，\texttt{:type}や\texttt{:kind}コマンドの実装などを行った．
   \end{enumerate}
 
 \phantomsection\addcontentsline{toc}{subsection}{計算機代数システム\texttt{computational-algebra}}

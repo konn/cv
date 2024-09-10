@@ -1,0 +1,30 @@
+name: Build and Deploy
+
+on:
+  push:
+
+
+jobs:
+  typeset:
+    name: Typeset
+    runs-on: ubuntu-latest
+    container: registry.gitlab.com/islandoftex/images/texlive:TL2024-2024-09-08-full
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Typeset Japanese CV
+      run: |
+        latexmk cv-ja.tex
+    - name: Typeset English CV
+      run: |
+        latexmk cv-en.tex
+    - name: Create Tarball
+      run: |
+        mkdir -p cvs/
+        mv cv-ja.pdf cv-en.pdf cvs/
+        tar caf cvs.tar.xz cvs/
+    - name: Upload PDFs
+      uses: actions/upload-artifact@v4
+      with:
+        path: cvs.tar.xz
+
