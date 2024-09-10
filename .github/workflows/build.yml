@@ -12,6 +12,24 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+    - uses: actions/cache@v4
+      name: "Cache generated files"
+      with:
+        path: |
+          svg-inkscape
+          _minted-*
+          *.aux
+          *.fls
+          *.out
+          *.listing
+          *.fdb_latexmk
+          *.bbl
+          *.blg
+          *.bcf
+          *.ltjruby
+        key: "local-cache-${{hashFiles('**/*.tex', '**/*.sty', '**/*.svg', '**/*.bib')}}"
+        restore-keys: |
+          latex-cache-
     - name: Typeset Japanese CV
       run: |
         latexmk cv-ja.tex
@@ -22,9 +40,9 @@ jobs:
       run: |
         mkdir -p cvs/
         mv cv-ja.pdf cv-en.pdf cvs/
-        tar caf cvs.tar.xz cvs/
+        tar caf cvs.tar.gz cvs/
     - name: Upload PDFs
       uses: actions/upload-artifact@v4
       with:
-        path: cvs.tar.xz
+        path: cvs.tar.gz
 
