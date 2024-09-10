@@ -8,14 +8,14 @@ jobs:
   typeset:
     name: Typeset
     runs-on: ubuntu-latest
-    container: registry.gitlab.com/islandoftex/images/texlive:TL2024-2024-09-08-medium
+    container: registry.gitlab.com/islandoftex/images/texlive:TL2024-2024-09-08-full
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Install packages
-      run: |
-        tlmgr install moderncv graphics luatexja haranoaji fixme biber biblatex cjk
-        tlmgr path add
+    # - name: Install packages
+    #   run: |
+    #     tlmgr install moderncv graphics luatexja haranoaji fixme biber biblatex cjk
+    #    tlmgr path add
     - uses: actions/cache@v4
       name: "Cache generated files"
       with:
