@@ -56,7 +56,7 @@ jobs:
       group: "pages"
       cancel-in-progress: false
     name: Deploy to GitHub Pages
-    if: github.event_name == 'push' && github.ref_name == 'main'
+    if: github.event_name == 'push' && github.ref_name == 'master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
