@@ -71,7 +71,7 @@ jobs:
       - name: Extract CVs
         run: |
           ls -R
-          tar xaf "${{ steps.download.outputs.download-path }}/cvs.tar.gz"
+          tar xaf ./artifact/cvs.tar.gz
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
