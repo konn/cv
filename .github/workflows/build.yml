@@ -1,14 +1,14 @@
 name: Build and Deploy
 
 on:
+  pull_request:
   push:
-
 
 jobs:
   typeset:
     name: Typeset
     runs-on: ubuntu-latest
-    container: registry.gitlab.com/islandoftex/images/texlive:TL2024-2024-09-08-full
+    container: ghcr.io/islandoftex/images/texlive:TL2024-2024-09-08-full
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -46,3 +46,33 @@ jobs:
       with:
         path: cvs.tar.gz
 
+  deploy:
+    needs: [typeset]
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    name: Deploy to GitHub Pages
+    if: github.event_name == 'push' && github.ref_name == 'main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        id: download
+        uses: actions/download-artifact@v4
+      - name: Extract CVs
+        run: |
+          tar xaf "${{ steps.download.outputs.download-path }}/cvs.tar.gz"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: './cvs'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
