@@ -27,6 +27,9 @@ jobs:
           *.blg
           *.bcf
           *.ltjruby
+          *.run.xml
+          *.toc
+          *.synctex.gz
         key: "local-cache-${{hashFiles('**/*.tex', '**/*.sty', '**/*.svg', '**/*.bib')}}"
         restore-keys: |
           latex-cache-
