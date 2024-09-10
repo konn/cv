@@ -18,6 +18,10 @@ jobs:
     - name: Typeset Japanese CV
       run: |
         latexmk cv-ja.tex
+    - if: always()
+      name: Skim Tlmgr
+      run: |
+        cat /usr/local/texlive/2024/texmf-var/web2c/tlmgr*.log
     - name: Typeset English CV
       run: |
         latexmk cv-en.tex
