@@ -45,7 +45,21 @@
 
 \section{Academic and Vocational Carrer}
 
-\cventry{2024--present}{Full-time Researcher and Developer}{Jij, Inc.}{Tokyo, Japan}{}{}
+\cventry{2024--present}{Full-time Researcher and Lead Developer}{Jij, Inc.}{Tokyo, Japan}{}{%
+  Desigining Devlopping JijModeling 2, the next-generation mathematical optimization modeller embedded in Python and written in Rust.\newline%
+  %
+  Main achievements:%
+  \begin{itemize}
+    \item Led the complete redesign and implementation of JijModeling version 2 from scratch, including:
+      \begin{itemize}
+        \item Achieved loose coupling with the surface language (Python)
+        \item Enhanced constraint detection mechanisms through symbolic processing
+        \item Designed and implemented language features
+        \item Designed and implemented a dedicated type system
+      \end{itemize}
+    \item Presented related academic and technical findings at domestic and international conferences
+  \end{itemize}
+}
 \cventry{2019--Oct 2024}{Full-time Researcher and Developer}{DeepFlow, Inc.}{Tokyo, Japan}{}{%
   Developped the massively-parallel numerical simulation software in Haskell from the ground up. Also designed and implemented simulation workflow tools for private company and national institutes.\newline%
   %
@@ -91,13 +105,13 @@
 \cvitemwithcomment{Agda}{Hobbyist}{Can write easy algebraic proofs, and have been played around with Cubical Type Theory for a while.}
 \cvitemwithcomment{JavaScript}{Moderate}{Used for automation and via WASM FFI}
 \cvitemwithcomment{TypeScript}{Newbie}{Used for automation.}
-\cvitemwithcomment{Rust}{Newbie}{Very interested in.}
+\cvitemwithcomment{Rust}{Advanced}{Designed and implemented a commercial programming language from scratch in Rust.}
 \cvitemwithcomment{C}{Undergraduate level}{Mainly called via C FFI from Haskell.}
 
 \section{Technical Skills}
 
 I have been using advanced type-level machineries of GHC, including GADTs, Data Kinds, Type Families, Linear Types, amongst others.
-Especially, I have expertise in desigining statically/dependently-tyepd EDLs in Haskell for scientific and/or mathematical computations.
+Especially, I have expertise in designing statically/dependently-typed EDSLs in Haskell, Rust, and Python for scientific and/or mathematical computations.
 In doing so, I have developed several libraries and type-checker plugins for GHC, and have been using in production.
 
 To implement efficient applications, I have been using the following technologies for many years:
@@ -106,8 +120,9 @@ To implement efficient applications, I have been using the following technologie
   \item Concurrency: Threads, STM, and \texttt{async}-like libraries.
   \item Distributed Computation: OpenMPI and Cloud Haskell.
   \item Streaming: Currently, I am using \texttt{streaming} family for streaming processing, but have a lengthy experience with \texttt{conduit} formerly.
-  \item Linear Types: mainly used for array allocation and pure mutation.
+  \item Linear Types / Ownership System: mainly used for array allocation and pure mutation.
   \item FFI: having been using to implement binding libraries. Both via GHC's FFI functionality and/or \texttt{inline-c}.
+  \item Type System Design: designed and implemented custom type systems for domain-specific languages.
 \end{itemize}
 
 I am using \texttt{rio} and/or \texttt{effectful} to build enterprise-level applications.
@@ -202,6 +217,24 @@ I contributed the following features:
 
  As a teaching assistant, I supervised the graduation work using this library in Mathematics Department in University of Tsukuba.
  For more details, see the recent paper~\cite{ISHII:2018ek}.
+
+\subsection{Recent Peer-Reviewed Papers}
+
+\noindent
+June 2025, \emph{Optimizing Optimizations: Case Study on Detecting Specific Types of Mathematical Optimization Constraints with E-Graphs in JijModeling}. EGRAPHS '25 (colocated with PLDI '25), Seoul, South Korea. (Joint work with T. Shimizu and T. Teramura)
+
+\noindent
+May 2025, \emph{Introduction to JijModeling, a Mathematical Optimization Modelling Tool}. JSAI 2025 (The 39th Annual Conference of the Japanese Society for Artificial Intelligence), Osaka, Japan. (Joint work with T. Shimizu and T. Teramura)
+
+\subsection{Commercial Technical Articles}
+
+\noindent
+December 2025, \emph{Understanding Monads and Friends via do-notation}. Published in ``n-Monthly Lambda Note'' Vol.5 No.2 (2025). Lambda Note, Inc.
+
+\subsection{Technical Conferences}
+
+\noindent
+June 2025, \emph{Two Monads in the World of Rust --- Writing Programs Intuitively with do-notation in Rust}. Kansuu-gata Matsuri (Functional Fest), Tokyo, Japan.
 
 \nocite{*}
 \defbibnote{note}{Amongst others, I coauthored the paper ``Freer Monads, more extensible effects''~\cite{Kiselyov:2015xy} with O. Kiselyov.}
