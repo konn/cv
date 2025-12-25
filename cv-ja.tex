@@ -54,6 +54,9 @@
   \newrefcontext[labelprefix={J-}] 
 \begin{description}
  \item[2024年11月-現在] 株式会社Jij ソフトウェア開発部（リードエンジニア）．
+  RustによるPython向け数理最適化モデリング言語JijModelingの設計・開発に従事．
+  特に，次期バージョンJijModeling 2の刷新の完全な再設計・実装を主導．成果について国内外の研究集会で登壇・発信を行う．
+
  \item[2019年4月-2024年10月] DeepFlow株式会社 研究開発部．
  
   Haskellによる大規模並列数値計算ソルバーElkurageの設計・開発に従事．当該ソルバーはスレッド並列やMPI通信などを活かしたHaskellによる高性能プログラミングの技術を用い，数億セルの並列計算を実現．高い抽象性と拡張性・効率性を両立するためのHaskell内への埋め込みドメイン特化型言語の設計や，型システムの設計，数理的アルゴリズムの新規実装等を主に担当する．
@@ -74,7 +77,21 @@
  \item[2010年8月-9月] 株式会社Preferred Infrastructureインターン生
 \end{description}
 
-\phantomsection\addcontentsline{toc}{subsection}{DeepFlow社における主な業績}
+\phantomsection\addcontentsline{toc}{subsection}{Jijにおける主な業績}
+\subsection*{Jijにおける主な業績}
+
+\begin{itemize}
+  \item 数理最適化モデリング言語JijModelingの次期バージョン2のゼロからの設計・実装を主導
+    \begin{itemize}
+      \item 表層言語（Python）との疎結合化の達成
+      \item 記号処理による検出機構の強化
+      \item 言語機能の設計・実装
+      \item 専用の型システムの設計・実装
+    \end{itemize}
+  \item 上記に関連する学術的・技術的成果の国内外での講演
+\end{itemize}
+
+\phantomsection\addcontentsline{toc}{subsection}{DeepFlowにおける主な業績}
 \subsection*{DeepFlow社における主な業績}
 
 \begin{itemize}
@@ -117,6 +134,12 @@
 \phantomsection\addcontentsline{toc}{subsection}{査読付き会議論文}
 \subsection*{査読付き会議論文}
 \noindent
+June 2025, \emph{Optimizing Optimizations: Case Study on Detecting Specific Types of Mathematical Optimization Constraints with E-Graphs in JijModeling}. EGARPHS '25 (colocated with PLDI '25), 2025, Seoul, South Korea. (Joint work with T. Shimizu and T. Teramura)
+
+\noindent
+May 2025, \emph{数理最適化モデル記述ツール JijModeling のご紹介}. 2025年度 人工知能学会全国大会 (第39回) 数理最適化OS, Osaka, Japan. (Joint work with T. Shimizu and T. Teramura)
+
+\noindent
 August 2021, \emph{Automatic Differentiation with Higher Infinitesimals, or Computational Smooth Infinitesimal Analysis in Weil Algebra}. Computer Algebra in Scientific Computing 2021, Sochi, Russia.
 
 \noindent
@@ -127,6 +150,12 @@ September 2015. Oleg Kiselyov and Hiromi ISHII, \emph{Freer Monads, More Extensi
 
 \phantomsection\addcontentsline{toc}{subsection}{学会発表}
 \subsection*{学会発表}
+\noindent
+June 2025, \emph{Optimizing Optimizations: Case Study on Detecting Specific Types of Mathematical Optimization Constraints with E-Graphs in JijModeling}. EGARPHS '25 (colocated with PLDI '25), 2025, Seoul, South Korea. (Joint work with T. Shimizu and T. Teramura)
+
+\noindent
+May 2025, \emph{数理最適化モデル記述ツール JijModeling のご紹介}. 2025年度 人工知能学会全国大会 (第39回) 数理最適化OS, Osaka, Japan. (Joint work with T. Shimizu and T. Teramura)
+
 \noindent
 August 2021, \emph{Automatic Differentiation with Higher Infinitesimals, or Computational Smooth Infinitesimal Analysis in Weil Algebra}. Computer Algebra in Scientific Computing 2021, Sochi, Russia, 査読あり.
 
@@ -139,9 +168,19 @@ March 2016, \emph{Freer Monads, More Extensible Effects}. Programming and Progra
 \noindent
 November 2017, \emph{Reflection Principle and construction of saturated ideals on $\Pow_{\omega_1} \lambda$}. Workshop on Iterated Forcing Theory and Cardinal Invariants, Kyoto-prefecture, Japan, 査読なし.
 
+\phantomsection\addcontentsline{toc}{subsection}{商業技術記事}
+\subsection*{商業技術記事}
+\noindent
+December 2025, \emph{do式でわかるモナドとその仲間たち}. 『n月刊ラムダノート』Vol.5 No.2（2025）所収. ラムダノート株式会社.
+
+\phantomsection\addcontentsline{toc}{subsection}{技術系会議}
+\subsection*{技術系会議}
+\noindent
+June 2025, \emph{Rust世界の二つのモナド──Rust でも do 式をしてプログラムを直感的に記述する件について}. 関数型まつり, Tokyo, Japan.
+
 \begin{refsection}
   \phantomsection\addcontentsline{toc}{subsection}{論文}
-  \nocite{ISHII:2016sf,ISHII:2018ek,ISHII:2019aa,Ishii:2021tp,Kiselyov:2015xy}
+  \nocite{Ishii:2025b,JijModeling-jsai:2025,ommx:2025,Ishii:2021tp,ISHII:2016sf,ISHII:2018ek,ISHII:2019aa,Ishii:2021tp,Kiselyov:2015xy}
   \defbibnote{exteff}{特に，Oleg Kiselyov氏との共著論文``Freer Monads, More Extensible Effects''~\cite{Kiselyov:2015xy}は現代のイフェクトシステムの隆盛につながるもので，特筆に値する．}
  \printbibliography[title=論文,heading=subbibliography,prenote=exteff]
 \end{refsection}
@@ -161,6 +200,7 @@ November 2017, \emph{Reflection Principle and construction of saturated ideals o
 
 \begin{description}
   \item[Haskell] エキスパート．公私ともに主要利用言語．
+  \item[Rust] 上級．Rustによる言語処理系のゼロからの設計・実装経験あり．
   \item[Python] 中級（機械学習案件や可視化に利用経験あり．環境管理にはRyeを使用）
   \item[Agda] 趣味（代数的性質の証明や，Cubical Type Theoryの利用経験あり）
   \item[JavaScript / TypeScript] 中級（一部自動化やGitHub Actionsなどに）
@@ -175,11 +215,11 @@ November 2017, \emph{Reflection Principle and construction of saturated ideals o
 \begin{description}
   \item[並列・分散処理] スレッド並列，STM，\texttt{async}型ライブラリ，Cloud Haskell，Open MPI
   \item[ストリーム処理] Haskellにおいては\texttt{streaming}ライブラリーを利用．\texttt{conduit}系統の利用経験も長い．
-  \item[EDSLの設計] ドメインに応じたHaskell内DSLの設計・実装経験豊富．
-  \item[線型型] リソース割り当てや管理などに利用．
+  \item[EDSLの設計] ドメインに応じたHaskell内，Rust内，Python内DSLの設計・実装経験豊富．
+  \item[線型型・所有権システム] リソース割り当てや管理などに利用．
   \item[コンテナ技術] Docker, Singularity
   \item[CI/CD] GitHub Actions, GitLab CI/CD
-  \item[形式手法] 性質ベーステスト（QuickCheck, Falsify, hypothesis）リグレッションテスト，依存型によるコンパイル時検証
+  \item[形式手法] 性質ベーステスト（QuickCheck, Falsify, hypothesis），リグレッションテスト，依存型によるコンパイル時検証，型システムの設計・実装
   \item[クラウド技術] AWS, GCP, Azure, さくらのクラウド, Terraform, Packer, Cloudflare
 \end{description}
 
@@ -202,7 +242,7 @@ November 2017, \emph{Reflection Principle and construction of saturated ideals o
   \item 関数型パラダイム・静的／漸進的型づけなど，理論的背景をもったプログラミング技術を適度に用いた製品開発に携わりたい．
   \begin{itemize}
     \item Haskellの先端的な機能を活かす仕事が望ましいが，必要に応じて他の言語を使うことも厭わない（適材適所）
-    \item Rustにも興味があり，書く仕事があれば取り組んでみたい
+    \item Rustにもプロフェッショナルな業務経験があり，両者の長所を活かした開発を行いたい．
   \end{itemize}
   \item 英語能力や数学能力など，私個人のスキルを活かせるとなおよい．
   \item 製品そのものだけでなく，開発・運用上の内部的な問題についても，エンジニアリングで解決していくという気概を持てる仕事がよい．
